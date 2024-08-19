@@ -5,8 +5,8 @@ const schema = new mongoose.Schema(
     {
         ID: { type: String, required: true, unique: true },
         name: { type: String, required: true },
-        courtData: { type: [] }, // dining court, station, and meal type of this item       
-        dateServed: { type: Date }, // date that this item was served (tentative field)
+        courtData: { type: [] }, // dining court, station, and meal type     
+        dateServed: { type: Date },
         isVegetarian: { type: Boolean, required: false },
         allergens: { type: [], required: false },
         nutritionFacts: { type: [], required: false },
@@ -14,4 +14,4 @@ const schema = new mongoose.Schema(
         avgRating: {type: Number, default: 0}
     }
 );
-module.exports = mongoose.model("MenuItem", schema); 
+module.exports = mongoose.model("MenuItem", schema);
