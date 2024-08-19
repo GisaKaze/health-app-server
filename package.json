@@ -1,7 +1,7 @@
 {
     "name": "health-app-server",
     "version": "1.0.0",
-    "description": "package.json for backend module",
+    "description": "APIs that integrate nutrition and exercise tracking to provide personalized, intelligent recommendations for guiding individuals on their health and fitness journeys.",
     "main": "index.js",
     "scripts": {
       "start": "nodemon index.js",
