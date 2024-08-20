@@ -5,8 +5,8 @@ const DiningCourt = require('../models/diningCourt')
 const User = require("../models/user");
 
 const DINING_COURTS = ["East", "West", "North", "East", "Central"];
-const DINING_API_URL_MENU_ITEMS = "https://api.com/menus/v2/items/";
-const DINING_API_URL_DINING_COURTS = "https://api.com/menus/v2/locations/";
+const DINING_API_URL_MENU_ITEMS = "https://api.com/menus/v1/items/";
+const DINING_API_URL_DINING_COURTS = "https://api.com/menus/v1/locations/";
 const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 const POPULAR_RATING_THRESHOLD = 3; // items >= 3 stars are considered "popular"
@@ -353,9 +353,6 @@ router.post("/prefsAndRests/:mealType", async (req, res) => {
 
 
 /*
-//this endpoint returns all items that align with the requested restrictions and preferences
-//the request body must include the requested restrictions & preferences
-//created the other functions in case both prefs & rests are not needed to be filtered
 req url -> http://localhost:8000/api/menuInfo/prefsAndRests
 Example req body below
 {
@@ -697,8 +694,8 @@ router.get("/busy/:diningCourt", async (req, res) => {
     try {
         const court = req.params.diningCourt;
         var busytime = "not busy";
-        if (court === "Wiley") {
-            // console.log("wiley")
+        if (court === "South") {
+            // console.log("South")
             if (d.getHours() > 20) {
                 busytime = "not too busy"
             } else if (d.getHours() > 18) {
@@ -717,8 +714,8 @@ router.get("/busy/:diningCourt", async (req, res) => {
                 busytime = "not busy";
             }
         }
-        else if (court === "Windsor") {
-            // console.log("windsor")
+        else if (court === "Central") {
+            // console.log("Central")
             if (d.getHours() > 20) {
                 busytime = "closed"
             } else if (d.getHours() > 18) {
@@ -737,7 +734,7 @@ router.get("/busy/:diningCourt", async (req, res) => {
                 busytime = "closed";
             }
         }
-        else if (court === "Hillenbrand") {
+        else if (court === "North") {
             // console.log("hilly")
             if (d.getHours() > 20) {
                 busytime = "closed"
@@ -757,8 +754,8 @@ router.get("/busy/:diningCourt", async (req, res) => {
                 busytime = "not busy";
             }
         }
-        else if (court === "Ford") {
-            // console.log("ford")
+        else if (court === "West") {
+            // console.log("West")
             if (d.getHours() > 20) {
                 busytime = "closed"
             } else if (d.getHours() > 18) {
@@ -777,8 +774,8 @@ router.get("/busy/:diningCourt", async (req, res) => {
                 busytime = "not busy";
             }
         }
-        else if (court === "Earhart") {
-            // console.log("earhart")
+        else if (court === "East") {
+            // console.log("East")
             if (d.getHours() > 20) {
                 busytime = "not busy"
             } else if (d.getHours() > 18) {
